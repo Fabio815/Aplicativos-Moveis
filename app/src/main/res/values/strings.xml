@@ -1,0 +1,4 @@
+<resources>
+    <string name="ola_mundo">hello world</string>
+    <string name="app_name">MeuApp</string>
+</resources>
