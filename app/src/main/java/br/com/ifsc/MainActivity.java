@@ -1,6 +1,7 @@
 package br.com.ifsc;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,20 +22,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
-
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
-            }
-        });
+        Log.d("ciclo_vida", "Oncreate");
     }
 
-    private void atualizarContador() {
-        contadorTextView.setText(String.valueOf(contador));
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ciclo_vida", "Oncreate");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("ciclo_vida", "onPause");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("ciclo_vida", "onDestroy");
+    }
+    //Tem mais sobre ciclo de vida do android.
 }
