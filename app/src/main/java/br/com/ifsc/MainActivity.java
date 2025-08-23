@@ -10,31 +10,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView contadorTextView;
-    private Button cliqueBotao;
-    private int contador = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
+        EditText altura = findViewById(R.id.valorAltura);
+        EditText peso = findViewById(R.id.valorPeso);
+        TextView resultado = findViewById(R.id.resultado);
+        Button btnCalcular = findViewById(R.id.calcular);
 
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
+        btnCalcular.setOnClickListener(v -> {
+            try {
+                double al = Double.parseDouble(altura.getText().toString());
+                double pe = Double.parseDouble(peso.getText().toString());
+
+                double imc = pe / Math.pow(al, 2);
+
+                if (imc < 18.5) {
+                    resultado.setText("Abaixo do peso");
+                } else if (imc >= 18.5 && imc <= 24.9) {
+                    resultado.setText("Peso ideal");
+                } else if (imc > 24.9 && imc <= 29.9) {
+                    resultado.setText("Sobrepeso");
+                } else {
+                    resultado.setText("Obesidade");
+                }
+            } catch (NumberFormatException e) {
+                resultado.setText("Digite valores válidos!");
             }
         });
-    }
-
-    private void atualizarContador() {
-        contadorTextView.setText(String.valueOf(contador));
     }
 }
