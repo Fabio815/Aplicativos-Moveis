@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         Button btnCalcular = findViewById(R.id.calcular);
 
         btnCalcular.setOnClickListener(v -> {
-            try {
                 double al = Double.parseDouble(altura.getText().toString());
                 double pe = Double.parseDouble(peso.getText().toString());
 
@@ -39,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     resultado.setText("Obesidade");
                 }
-            } catch (NumberFormatException e) {
-                resultado.setText("Digite valores válidos!");
-            }
         });
     }
 }
