@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,22 +8,52 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/contadorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="132dp" />
+        android:layout_x="72dp"
+        android:layout_y="51dp"
+        android:text="Altura"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="72dp"
+        android:layout_y="181dp"
+        android:text="Peso"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="148dp"
+        android:layout_y="379dp"
+        android:text="Resultado"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/altura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="75dp"
+        android:layout_y="98dp"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="75dp"
+        android:layout_y="237dp"
+        android:ems="10" />
 
     <Button
-        android:id="@+id/cliqueBotao"
+        android:id="@+id/botao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Clique Aqui"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_x="131dp"
+        android:layout_y="306dp"
+        android:text="Calcula IMC" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</AbsoluteLayout>
