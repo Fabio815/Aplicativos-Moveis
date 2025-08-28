@@ -19,26 +19,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText altura = findViewById(R.id.altura);
-        EditText peso = findViewById(R.id.peso);
-        Button botao = findViewById(R.id.botao);
-        TextView resultado = findViewById(R.id.resultado);
-
-        botao.setOnClickListener(v -> {
-            double al = Double.parseDouble(altura.getText().toString());
-            double pe = Double.parseDouble(peso.getText().toString());
-
-            double imc = pe / Math.pow(al, 2);
-
-            if (imc < 18.5) {
-                resultado.setText("Abaixo do peso");
-            } else if (imc >= 18.5 && imc <= 24.9) {
-                resultado.setText("Peso ideal");
-            } else if (imc > 24.9 && imc <= 29.9) {
-                resultado.setText("Sobrepeso");
-            } else {
-                resultado.setText("Obesidade");
-            }
-        });
     }
 }
