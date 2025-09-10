@@ -3,6 +3,8 @@ package br.com.ifsc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SegundActivity extends AppCompatActivity {
     private Button btnVoltar;
+
+    TextView tvResutlado;
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +24,27 @@ public class SegundActivity extends AppCompatActivity {
         setContentView(R.layout.activity_segund);
 
         btnVoltar.findViewById(R.id.voltar);
+        tvResutlado.findViewById(R.id.imc);
 
-        btnVoltar.setOnClickListener(t -> {
-            startActivity(new Intent(this, MainActivity.class));
+        btnVoltar.findViewById(R.id.voltar);
+        btnVoltar.setOnClickListener(v -> {
+            finish();
         });
+
+        Bundle bundle = getIntent().getExtras();
+        float peso = bundle.getFloat("peso");
+        float altura = bundle.getFloat("altura");
+
+        double imc = peso / Math.pow(altura, 2);
+
+        if (imc < 18.5) {
+            tvResutlado.setText("Abaixo do peso");
+        } else if (imc >= 18.5 && imc <= 24.9) {
+            tvResutlado.setText("Peso ideal");
+        } else if (imc > 24.9 && imc <= 29.9) {
+            tvResutlado.setText("Sobrepeso");
+        } else {
+            tvResutlado.setText("Obesidade");
+        }
     }
 }

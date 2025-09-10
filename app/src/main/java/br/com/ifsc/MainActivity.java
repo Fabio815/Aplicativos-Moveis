@@ -14,33 +14,27 @@ import androidx.core.view.WindowInsetsCompat;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    EditText altura;
+    EditText peso;
+    TextView resultado;
+    Button btnCalcular;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText altura = findViewById(R.id.valorAltura);
-        EditText peso = findViewById(R.id.valorPeso);
-        TextView resultado = findViewById(R.id.resultado);
-        Button btnCalcular = findViewById(R.id.calcular);
+        altura = altura.findViewById(R.id.valorAltura);
+        peso = peso.findViewById(R.id.valorPeso);
+        resultado = resultado.findViewById(R.id.resultado);
+        btnCalcular = btnCalcular.findViewById(R.id.calcular);
 
         btnCalcular.setOnClickListener(v -> {
-                startActivity(new Intent(this, SegundActivity.class));
-
-                double al = Double.parseDouble(altura.getText().toString());
-                double pe = Double.parseDouble(peso.getText().toString());
-
-                double imc = pe / Math.pow(al, 2);
-
-                if (imc < 18.5) {
-                    resultado.setText("Abaixo do peso");
-                } else if (imc >= 18.5 && imc <= 24.9) {
-                    resultado.setText("Peso ideal");
-                } else if (imc > 24.9 && imc <= 29.9) {
-                    resultado.setText("Sobrepeso");
-                } else {
-                    resultado.setText("Obesidade");
-                }
+                Intent intent = new Intent(this, SegundActivity.class);
+                Float p = Float.parseFloat(peso.getText().toString());
+                Float a = Float.parseFloat(altura.getText().toString());
+                intent.putExtra("peso", p);
+                intent.putExtra("altura", a);
+                startActivity(intent);
         });
     }
 }
