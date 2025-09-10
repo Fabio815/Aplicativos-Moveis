@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        altura = altura.findViewById(R.id.valorAltura);
-        peso = peso.findViewById(R.id.valorPeso);
-        resultado = resultado.findViewById(R.id.resultado);
-        btnCalcular = btnCalcular.findViewById(R.id.calcular);
+        altura.findViewById(R.id.valorAltura);
+        peso.findViewById(R.id.valorPeso);
+        resultado.findViewById(R.id.resultado);
+        btnCalcular.findViewById(R.id.calcular);
 
         btnCalcular.setOnClickListener(v -> {
                 Intent intent = new Intent(this, SegundActivity.class);

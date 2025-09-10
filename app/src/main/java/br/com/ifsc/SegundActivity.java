@@ -13,8 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SegundActivity extends AppCompatActivity {
-    private Button btnVoltar;
-
+    public Button btnVoltar;
     TextView tvResutlado;
     ImageView img;
     @Override
@@ -24,7 +23,8 @@ public class SegundActivity extends AppCompatActivity {
         setContentView(R.layout.activity_segund);
 
         btnVoltar.findViewById(R.id.voltar);
-        tvResutlado.findViewById(R.id.imc);
+        tvResutlado.findViewById(R.id.resultado);
+        img.findViewById(R.id.imageView);
 
         btnVoltar.findViewById(R.id.voltar);
         btnVoltar.setOnClickListener(v -> {
@@ -39,12 +39,16 @@ public class SegundActivity extends AppCompatActivity {
 
         if (imc < 18.5) {
             tvResutlado.setText("Abaixo do peso");
+            img.setImageResource(R.drawable.abaixopeso);
         } else if (imc >= 18.5 && imc <= 24.9) {
             tvResutlado.setText("Peso ideal");
+            img.setImageResource(R.drawable.normal);
         } else if (imc > 24.9 && imc <= 29.9) {
             tvResutlado.setText("Sobrepeso");
+            img.setImageResource(R.drawable.sobrepeso);
         } else {
             tvResutlado.setText("Obesidade");
+            img.setImageResource(R.drawable.obesidade1);
         }
     }
 }
