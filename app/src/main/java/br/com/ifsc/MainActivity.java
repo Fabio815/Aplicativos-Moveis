@@ -14,18 +14,33 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button btnA, btnB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FrameLayout frameLayout;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frameLayout=findViewById(R.id.frameLayout);
+        btnA = findViewById(R.id.btnA);
+        btnB = findViewById(R.id.btnB);
 
-        FramentoA fragmentA = new FramentoA();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.frameLayout, fragmentA);
-        fragmentTransaction.commit();
+
+        btnA.setOnClickListener(v -> {
+            FramentoA fragmentA = new FramentoA();
+
+            fragmentTransaction.replace(R.id.frameLayout, fragmentA);
+            fragmentTransaction.commit();
+        });
+
+        btnB.setOnClickListener(v -> {
+            FramentoB framentoB = new FramentoB();
+            Bundle bundle = new Bundle();
+            bundle.putString("msg", "Olá");
+            framentoB.setArguments(bundle);
+            fragmentTransaction.replace(R.id.frameLayout, framentoB);
+            fragmentTransaction.commit();
+        });
+        frameLayout=findViewById(R.id.frameLayout);
     }
 }
