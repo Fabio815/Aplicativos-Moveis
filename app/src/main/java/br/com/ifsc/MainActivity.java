@@ -3,6 +3,7 @@ package br.com.ifsc;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,31 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView contadorTextView;
-    private Button cliqueBotao;
-    private int contador = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FrameLayout frameLayout;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
+        frameLayout=findViewById(R.id.frameLayout);
 
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
-            }
-        });
-    }
-
-    private void atualizarContador() {
-        contadorTextView.setText(String.valueOf(contador));
+        FramentoA fragmentA = new FramentoA();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.frameLayout, fragmentA);
+        fragmentTransaction.commit();
     }
 }
