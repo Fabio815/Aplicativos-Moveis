@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SegundActivity extends AppCompatActivity {
     public Button btnVoltar;
-    TextView tvResutlado;
+    TextView resultado;
     ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class SegundActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_segund);
 
-        btnVoltar.findViewById(R.id.voltar);
-        tvResutlado.findViewById(R.id.resultado);
-        img.findViewById(R.id.imageView);
+        btnVoltar = findViewById(R.id.voltar);
+        resultado = findViewById(R.id.resultado);
+        img = findViewById(R.id.img);
 
         btnVoltar.findViewById(R.id.voltar);
         btnVoltar.setOnClickListener(v -> {
@@ -38,17 +38,23 @@ public class SegundActivity extends AppCompatActivity {
         double imc = peso / Math.pow(altura, 2);
 
         if (imc < 18.5) {
-            tvResutlado.setText("Abaixo do peso");
+            resultado.setText("Abaixo do peso: " + imc);
             img.setImageResource(R.drawable.abaixopeso);
         } else if (imc >= 18.5 && imc <= 24.9) {
-            tvResutlado.setText("Peso ideal");
+            resultado.setText("Peso ideal: " + imc);
             img.setImageResource(R.drawable.normal);
         } else if (imc > 24.9 && imc <= 29.9) {
-            tvResutlado.setText("Sobrepeso");
+            resultado.setText("Sobrepeso: " + imc);
             img.setImageResource(R.drawable.sobrepeso);
-        } else {
-            tvResutlado.setText("Obesidade");
+        } else if (imc > 30 && imc <= 34.9) {
+            resultado.setText("Obesidade 1: " + imc);
             img.setImageResource(R.drawable.obesidade1);
+        } else if (imc > 35 && imc <= 35) {
+            resultado.setText("Obesidade 2: " + imc);
+            img.setImageResource(R.drawable.obesidade2);
+        } else {
+            resultado.setText("Obesidade 3: " + imc);
+            img.setImageResource(R.drawable.obesidade3);
         }
     }
 }
