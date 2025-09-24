@@ -16,17 +16,16 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     EditText altura;
     EditText peso;
-    TextView resultado;
+    //TextView resultado;
     Button btnCalcular;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        altura.findViewById(R.id.valorAltura);
-        peso.findViewById(R.id.valorPeso);
-        resultado.findViewById(R.id.resultado);
-        btnCalcular.findViewById(R.id.calcular);
+        altura = findViewById(R.id.altura);
+        peso = findViewById(R.id.peso);
+        btnCalcular = findViewById(R.id.btnCalcular);
 
         btnCalcular.setOnClickListener(v -> {
                 Intent intent = new Intent(this, SegundActivity.class);
