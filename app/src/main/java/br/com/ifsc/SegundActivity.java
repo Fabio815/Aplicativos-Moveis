@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SegundActivity extends AppCompatActivity {
     public Button btnVoltar;
-    TextView resultado;
+    TextView resultado, pesoDs, alturaDs;
     ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,19 +22,23 @@ public class SegundActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_segund);
 
+        Bundle bundle = getIntent().getExtras();
+
         btnVoltar = findViewById(R.id.voltar);
         resultado = findViewById(R.id.resultado);
         img = findViewById(R.id.img);
+        pesoDs = findViewById(R.id.peso);
+        alturaDs = findViewById(R.id.altura);
 
         btnVoltar.findViewById(R.id.voltar);
         btnVoltar.setOnClickListener(v -> {
             finish();
         });
-
-        Bundle bundle = getIntent().getExtras();
         float peso = bundle.getFloat("peso");
         float altura = bundle.getFloat("altura");
 
+        pesoDs.setText(bundle.getString("peso"));
+        alturaDs.setText(bundle.getString("altura"));
         double imc = peso / Math.pow(altura, 2);
 
         if (imc < 18.5) {
