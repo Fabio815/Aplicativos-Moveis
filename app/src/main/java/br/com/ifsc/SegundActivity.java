@@ -38,7 +38,7 @@ public class SegundActivity extends AppCompatActivity {
         double imc = peso / Math.pow(altura, 2);
 
         if (imc < 18.5) {
-            resultado.setText("Abaixo do peso: " + imc);
+            resultado.setText("Abaixo do peso: " + Math.round(imc)));
             img.setImageResource(R.drawable.abaixopeso);
         } else if (imc >= 18.5 && imc <= 24.9) {
             resultado.setText("Peso ideal: " + Math.round(imc));
