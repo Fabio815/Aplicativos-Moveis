@@ -12,23 +12,16 @@ import androidx.fragment.app.Fragment;
 
 public class FramentoB extends Fragment {
     TextView textView;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        Bundle bundle = getArguments();
-        textView.setText(bundle.getString("msg"));
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.frament_framento_b, container, false);
+        TextView textView = v.findViewById(R.id.resultado);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_framento_a, container, false);
-        textView = v.findViewById(R.id.textView);
+        float valorEmF = getArguments().getFloat("valorEmF");
+        textView.setText(String.valueOf(valorEmF));
+
         return v;
     }
 }
