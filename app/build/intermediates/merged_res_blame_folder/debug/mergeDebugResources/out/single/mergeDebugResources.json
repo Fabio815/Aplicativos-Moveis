@@ -60,6 +60,10 @@
         "source": "br.com.ifsc.app-main-34:/drawable/ic_launcher_background.xml"
     },
     {
+        "merged": "br.com.ifsc.app-debug-32:/layout_activity_main2.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/layout/activity_main2.xml"
+    },
+    {
         "merged": "br.com.ifsc.app-debug-32:/drawable_obesidade1.png.flat",
         "source": "br.com.ifsc.app-main-34:/drawable/obesidade1.png"
     },

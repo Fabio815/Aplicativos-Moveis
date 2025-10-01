@@ -4207,9 +4207,9 @@
                     "from": {
                         "startLines": "2,1",
                         "startColumns": "4,4",
-                        "startOffsets": "68,17",
+                        "startOffsets": "66,16",
                         "endColumns": "43,49",
-                        "endOffsets": "107,62"
+                        "endOffsets": "105,61"
                     },
                     "to": {
                         "startLines": "1982,2117",

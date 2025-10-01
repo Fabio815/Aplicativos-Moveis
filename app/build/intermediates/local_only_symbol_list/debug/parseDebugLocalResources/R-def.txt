@@ -13,10 +13,13 @@ drawable perfil
 drawable sobrepeso
 id altura
 id btnCalcular
+id frameLayout
 id imageView
 id main
+id nome
 id peso
 layout activity_main
+layout activity_main2
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

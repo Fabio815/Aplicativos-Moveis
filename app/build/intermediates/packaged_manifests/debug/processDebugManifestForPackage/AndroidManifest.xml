@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.MeuApp" >
         <activity
+            android:name="br.com.ifsc.MainActivity2"
+            android:exported="false" />
+        <activity
             android:name="br.com.ifsc.MainActivity"
             android:exported="true" >
             <intent-filter>
