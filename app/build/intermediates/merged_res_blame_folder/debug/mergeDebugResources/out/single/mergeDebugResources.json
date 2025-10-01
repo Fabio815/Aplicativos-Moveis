@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/layout_activity_main.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_normal.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/normal.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_sobrepeso.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/sobrepeso.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_obesidade3.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/obesidade3.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_perfil.jpg.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/perfil.jpg"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_ic_launcher_background.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_obesidade1.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/obesidade1.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/xml_data_extraction_rules.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/xml_backup_rules.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_obesidade2.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/obesidade2.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/drawable_abaixopeso.png.flat",
+        "source": "br.com.ifsc.app-main-34:/drawable/abaixopeso.png"
+    },
+    {
+        "merged": "br.com.ifsc.app-debug-32:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "br.com.ifsc.app-main-34:/mipmap-hdpi/ic_launcher.webp"
+    }
+]

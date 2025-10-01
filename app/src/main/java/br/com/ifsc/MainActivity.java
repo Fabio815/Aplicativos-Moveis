@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
         nome = findViewById(R.id.nome);
 
         btnCalcular.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SegundActivity.class);
+            Intent intent = new Intent(this, MainActivity2.class);
             Float p = Float.parseFloat(peso.getText().toString());
             Float a = Float.parseFloat(altura.getText().toString());
+            String n = String.valueOf(nome);
             intent.putExtra("peso", p);
             intent.putExtra("altura", a);
-            intent.putExtra("nome", nome);
+            intent.putExtra("nome", n);
             startActivity(intent);
         });
     }

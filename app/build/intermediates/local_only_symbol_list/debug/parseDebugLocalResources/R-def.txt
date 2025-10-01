@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable abaixopeso
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable normal
+drawable obesidade1
+drawable obesidade2
+drawable obesidade3
+drawable perfil
+drawable sobrepeso
+id altura
+id btnCalcular
+id imageView
+id main
+id peso
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string ola_mundo
+style Base.Theme.MeuApp
+style Theme.MeuApp
+xml backup_rules
+xml data_extraction_rules
