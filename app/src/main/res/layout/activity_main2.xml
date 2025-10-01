@@ -34,19 +34,19 @@
 
             <TextView
                 android:id="@+id/nome"
-                android:layout_width="116dp"
+                android:layout_width="233dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:textSize="24dp"
-                android:text=" " />
+                android:text=" "
+                android:textSize="24dp" />
 
             <TextView
                 android:id="@+id/imcCalculado"
-                android:layout_width="116dp"
+                android:layout_width="231dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:textSize="24dp"
-                android:text=" " />
+                android:text=" "
+                android:textSize="24dp" />
 
             <ImageView
                 android:id="@+id/imagem"

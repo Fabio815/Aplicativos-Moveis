@@ -32,11 +32,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         float peso = bundle.getFloat("peso");
         float altura = bundle.getFloat("altura");
-        String nome = bundle.getString("nome");
+        String nomeTexto = bundle.getString("nome");
 
         double imc = peso / Math.pow(altura, 2);
 
-
+        nome.setText("IMC: " + String.valueOf(imc));
         /*btnVoltar.findViewById(R.id.voltar);
         btnVoltar.setOnClickListener(v -> {
             finish();

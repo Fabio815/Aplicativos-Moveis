@@ -3344,6 +3344,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imagem
+id imcCalculado
 id immediateStop
 id included
 id indeterminate
