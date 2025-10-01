@@ -1,6 +1,9 @@
 package br.com.ifsc;
 
+import android.media.Image;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,21 +13,26 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity2 extends AppCompatActivity {
 
+    TextView nome;
+    TextView imcCalculado;
+    ImageView img;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
 
+        nome = findViewById(R.id.nome);
+        imcCalculado = findViewById(R.id.imcCalculado);
+        img = findViewById(R.id.imagem);
+
         Bundle bundle = getIntent().getExtras();
 
-        btnVoltar = findViewById(R.id.voltar);
-        resultado = findViewById(R.id.resultado);
-        img = findViewById(R.id.img);
-
-        btnVoltar.findViewById(R.id.voltar);
+        /*btnVoltar.findViewById(R.id.voltar);
         btnVoltar.setOnClickListener(v -> {
             finish();
-        });
+        });*/
     }
 }
