@@ -1,3 +1,5 @@
+br.com.ifsc:id/voltar = 0x7f080204
+br.com.ifsc:id/ds = 0x7f080203
 br.com.ifsc:style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu = 0x7f100455
 br.com.ifsc:styleable/ViewTransition = 0x7f110098
 br.com.ifsc:id/dialog_button = 0x7f08009a
