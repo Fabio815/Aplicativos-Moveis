@@ -16,6 +16,10 @@
         "source": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-main-34:\\drawable\\obesidade3.png"
     },
     {
+        "merged": "br.com.ifsc.app-debug-32:/layout_activity_main.xml.flat",
+        "source": "br.com.ifsc.app-main-34:/layout/activity_main.xml"
+    },
+    {
         "merged": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-debug-32:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-main-34:\\xml\\backup_rules.xml"
     },
@@ -54,10 +58,6 @@
     {
         "merged": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-debug-32:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-main-34:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "br.com.ifsc.app-debug-32:/layout_activity_main2.xml.flat",
-        "source": "br.com.ifsc.app-main-34:/layout/activity_main2.xml"
     },
     {
         "merged": "C:\\Users\\aluno\\.gradle\\daemon\\8.13\\br.com.ifsc.app-debug-32:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
