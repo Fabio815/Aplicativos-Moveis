@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Float a = Float.parseFloat(altura.getText().toString());
             String n = nome.getText().toString();
             if (p < 0 || a < 0 || n.isEmpty()) {
-                MainActivity act2 = new MainActivity();
-                act2.onRestart();
+                return;
             }
             intent.putExtra("peso", p);
             intent.putExtra("altura", a);

@@ -63,11 +63,13 @@ public class MainActivity2 extends AppCompatActivity {
             img.setImageResource(R.drawable.obesidade3);
         }
 
-
+        double result;
         if (imc < 20) {
-            ds.setText("Precisa ganhar kg" + result);
+            result = imc / Math.pow(altura, 2) * (20 - imc);
+            ds.setText("Precisa ganhar kg: " + Math.floor(result));
         } else if (imc > 25) {
-            ds.setText("Precisa ganhar perder");
+            result = imc / altura;
+            ds.setText("Precisa ganhar perder kg: " + Math.floor(result));
         }
 
         btnVoltar.findViewById(R.id.voltar);
