@@ -63,9 +63,9 @@ public class MainActivity2 extends AppCompatActivity {
             img.setImageResource(R.drawable.obesidade3);
         }
 
-        double x = 3;
+
         if (imc < 20) {
-            ds.setText("Precisa ganhar " + Math.round(x) + "kg");
+            ds.setText("Precisa ganhar kg" + result);
         } else if (imc > 25) {
             ds.setText("Precisa ganhar perder");
         }

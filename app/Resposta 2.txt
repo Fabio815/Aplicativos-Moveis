@@ -1,0 +1,5 @@
+2)Explique os principais artefatos disponíveis em um projeto Android como manifesto, res , R, Activitys
+
+Activitys É responsável pela interface na aplicação, sendo encarregado do elemento visual e controle de eventos.
+Nas Activitys temos um ou mais arquivos .XML e Java ou Kotlin.
+Sendo o arquivo .XML que vai conter os componentes visuais, como botão, menus, textos etc. E a classe Java onde terá o tratamento de evento.
