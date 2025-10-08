@@ -51,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         });
         //Excluir se ficar muito tempo pressionado.
-
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            nomes.remove(position);
+            adapter.notifyDataSetChanged();
+            return true;
+        });
 
         btn.setOnClickListener(e -> {
             nomes.add(String.valueOf(editText.getText()));
