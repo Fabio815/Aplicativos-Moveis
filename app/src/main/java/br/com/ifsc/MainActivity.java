@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,10 +43,19 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, android.R.id.text1, nomes
         );
+        //Definir um tratamento de click sobre o item da lista.
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Item: " + nomes.get(position),
+                    Toast.LENGTH_SHORT).show();
+        });
+        //Excluir se ficar muito tempo pressionado.
+
 
         btn.setOnClickListener(e -> {
             nomes.add(String.valueOf(editText.getText()));
-            listView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
         });
 
 
