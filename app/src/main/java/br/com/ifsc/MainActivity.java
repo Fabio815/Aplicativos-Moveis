@@ -2,7 +2,10 @@ package br.com.ifsc;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,30 +14,41 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
-    private TextView contadorTextView;
-    private Button cliqueBotao;
-    private int contador = 0;
+public class MainActivity extends AppCompatActivity {
+    ListView listView;
+    List<String> nomes;
+    EditText editText;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        nomes = new ArrayList<>();
+        nomes.add("Rodolfo");
+        nomes.add("Pedro");
+        nomes.add("Maykon");
+        nomes.add("Micael");
 
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
+        listView = findViewById(R.id.listView);
+        editText = findViewById(R.id.editText);
+        btn = findViewById(R.id.btn);
 
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
-            }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1, android.R.id.text1, nomes
+        );
+
+        btn.setOnClickListener(e -> {
+            nomes.add(String.valueOf(editText.getText()));
+            listView.setAdapter(adapter);
         });
+
+
+        listView.setAdapter(adapter);
     }
 
-    private void atualizarContador() {
-        contadorTextView.setText(String.valueOf(contador));
-    }
 }
