@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         nomes.add("Maykon");
         nomes.add("Micael");
 
+
         listView = findViewById(R.id.listView);
         editText = findViewById(R.id.editText);
         btn = findViewById(R.id.btn);
