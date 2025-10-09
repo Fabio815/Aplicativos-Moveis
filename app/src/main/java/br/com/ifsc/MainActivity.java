@@ -24,27 +24,32 @@ public class MainActivity extends AppCompatActivity {
     List<String> nomes;
     EditText editText;
     Button btn;
+    ControladorPlaneta controllerPlaneta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nomes = new ArrayList<>();
+        /*nomes = new ArrayList<>();
         nomes.add("Rodolfo");
         nomes.add("Pedro");
         nomes.add("Maykon");
-        nomes.add("Micael");
+        nomes.add("Micael");*/
 
-
-        listView = findViewById(R.id.listView);
+        //listView = findViewById(R.id.listView);
         editText = findViewById(R.id.editText);
         btn = findViewById(R.id.btn);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+        controllerPlaneta = new ControladorPlaneta();
+        PlanetaAdapter adapter = new PlanetaAdapter(this, R.layout.itemlista, controllerPlaneta.getPlanetas());
+
+        controllerPlaneta.getPlanetas();
+
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, android.R.id.text1, nomes
         );
         //Definir um tratamento de click sobre o item da lista.
-        listView.setOnItemClickListener((parent, view, position, id) -> {
+        /*listView.setOnItemClickListener((parent, view, position, id) -> {
             Toast.makeText(
                     getApplicationContext(),
                     "Item: " + nomes.get(position),
@@ -55,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
             nomes.remove(position);
             adapter.notifyDataSetChanged();
             return true;
-        });
+        });*/
 
         btn.setOnClickListener(e -> {
-            nomes.add(String.valueOf(editText.getText()));
-            adapter.notifyDataSetChanged();
+            //nomes.add(String.valueOf(editText.getText()));
+            //adapter.notifyDataSetChanged();
         });
 
 
