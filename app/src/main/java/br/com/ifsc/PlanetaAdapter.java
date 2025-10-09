@@ -27,11 +27,11 @@ public class PlanetaAdapter extends ArrayAdapter<Planeta> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(myContext);
-        View v = inflater.inflate(layoutResourceId, parent, false);
+        View view = inflater.inflate(layoutResourceId, parent, false);
 
         ImageView imageView = imageView.findViewById(R.id.imageView);
-        TextView ds = ds.findViewById(R.id.ds);
+        TextView ds = ds.findViewById(R.id.textView);
 
-        return super.getView(position, convertView, parent);
+        return view;
     }
 }
