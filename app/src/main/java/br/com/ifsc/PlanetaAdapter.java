@@ -29,8 +29,8 @@ public class PlanetaAdapter extends ArrayAdapter<Planeta> {
         LayoutInflater inflater = LayoutInflater.from(myContext);
         View view = inflater.inflate(layoutResourceId, parent, false);
 
-        ImageView imageView = imageView.findViewById(R.id.imageView);
-        TextView ds = ds.findViewById(R.id.textView);
+        ImageView imageView = view.findViewById(R.id.imageView);
+        TextView ds = view.findViewById(R.id.textView);
 
         return view;
     }
