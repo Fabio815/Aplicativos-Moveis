@@ -21,17 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
-
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
-            }
-        });
     }
 
     private void atualizarContador() {
