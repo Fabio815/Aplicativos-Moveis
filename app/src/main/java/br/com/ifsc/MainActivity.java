@@ -43,5 +43,14 @@ public class MainActivity extends AppCompatActivity {
         AppAdapter adapter = new AppAdapter(this, R.layout.app, apps);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            ApplicationInfo appInfo = (ApplicationInfo) parent.getItemAtPosition(position);
+            Intent intentLauncher = pm.getLaunchIntentForPackage(appInfo.packageName);
+            if (intentLauncher != null) {
+                startActivity(intentLauncher);
+            } else {
+                Log.e("MainActivity", "Não foi possível iniciar o aplicativo: " + appInfo.packageName);
+            }
+        });
     }
 }
