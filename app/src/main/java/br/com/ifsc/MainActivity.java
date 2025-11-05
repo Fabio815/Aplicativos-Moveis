@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 contentValues.put("texto", texto);
                 database.insert("notas", null, contentValues);
             }
-
+            carregarNotas();
         });
-
+        carregarNotas();
     }
 
     public void carregarNotas() {
