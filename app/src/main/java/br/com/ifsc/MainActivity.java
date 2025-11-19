@@ -1,5 +1,7 @@
 package br.com.ifsc;
 
+import android.annotation.SuppressLint;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,29 +14,18 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView contadorTextView;
-    private Button cliqueBotao;
-    private int contador = 0;
-
+    LocationManager locationManager;
+    @SuppressLint("ServiceCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        contadorTextView = findViewById(R.id.contadorTextView);
-        cliqueBotao = findViewById(R.id.cliqueBotao);
-
-        cliqueBotao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                atualizarContador();
-            }
-        });
+        locationManager = (LocationManager)getSystemService(LOCALE_SERVICE);
     }
 
-    private void atualizarContador() {
-        contadorTextView.setText(String.valueOf(contador));
+    public void getLocation() {
+        //1 Declarar a permissão no manifest
+
+        locationManager.getLastKnownLocation();
     }
 }
