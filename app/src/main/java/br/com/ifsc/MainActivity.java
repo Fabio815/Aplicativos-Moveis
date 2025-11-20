@@ -22,11 +22,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
+
 public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
     TextView textView;
     Button btn;
-
+    MapView mapView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         textView = findViewById(R.id.textView);
         btn = findViewById(R.id.button);
+        mapView = findViewById(R.id.mapinha);
 
         btn.setOnClickListener( v -> {
             getLocation();
@@ -62,8 +66,14 @@ public class MainActivity extends AppCompatActivity {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
             textView.setText("longitude: " + latitude + " Longitude: " + longitude);
+            showLocationOnMap(latitude, longitude);
         }
 
+    }
+    public void showLocationOnMap(double latitude, double longitude ) {
+        GeoPoint userLocation = new GeoPoint(latitude, longitude);
+
+        mapView.getController(userLocation);
     }
 
     public void requestPermission(){
