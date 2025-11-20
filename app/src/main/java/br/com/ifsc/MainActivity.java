@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
     TextView textView;
     Button btn;
-    MapView mapView;
+    MapView mapView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
