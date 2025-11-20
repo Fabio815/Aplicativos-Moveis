@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @RequiresPermission(allOf = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION})
+    @SuppressLint("MissingPermission")
     public void getLocation(){
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, location1 -> {
