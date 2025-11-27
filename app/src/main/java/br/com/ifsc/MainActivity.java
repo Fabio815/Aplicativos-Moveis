@@ -1,5 +1,7 @@
 package br.com.ifsc;
 
+import static java.util.Objects.isNull;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +21,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     SQLiteDatabase database;
@@ -26,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     Button botao;
     ListView listView;
 
-    ArrayList<String> notasList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,24 +47,46 @@ public class MainActivity extends AppCompatActivity {
                 contentValues.put("texto", texto);
                 database.insert("notas", null, contentValues);
             }
-            carregarNotas();
+            listarNotas();
         });
-        carregarNotas();
+
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            Notas n = (Notas) parent.getItemAtPosition(position);
+            System.out.println(n.id);
+            deletarNotas(n.id);
+            return true;
+        });
+
+        listarNotas();
     }
 
-    public void carregarNotas() {
+    public void listarNotas() {
         //database.rawQuery("select * from notas where id=?", new String[]{"1"});
-        notasList.clear();
+        //notasList.clear();
+        List<Notas> notasList = null;
         Cursor cursor = database.rawQuery("select * from notas", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            int columnIndex = cursor.getColumnIndex("texto");
-            String name = cursor.getString(columnIndex);
-            notasList.add(name);
-            cursor.moveToNext();
+        if (!isNull(cursor)) {
+            notasList = new ArrayList<>();
+
+            while (!cursor.isAfterLast()) {
+                int columnIndexId = cursor.getColumnIndex("id");
+                int columnIndexName = cursor.getColumnIndex("name");
+                int columnIndexText = cursor.getColumnIndex("texto");
+                Notas n =new Notas(cursor.getInt(columnIndexId),cursor.getString(columnIndexName),cursor.getString(columnIndexText));
+                notasList.add(n);
+                cursor.moveToNext();
+            }
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, notasList);
-        listView.setAdapter(adapter);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, notasList);
+        ArrayAdapterNomes arrayAdapterNomes= new ArrayAdapterNomes(this, android.R.layout.simple_list_item_1,notasList);
+        listView.setAdapter(arrayAdapterNomes);
+        cursor.close();
+    }
+
+    public void deletarNotas(long idNome) {
+        if (idNome > 0) {
+            int dr = database.delete("notas", " id = ?", new String[]{ String.valueOf(idNome) });
+        }
     }
 }
