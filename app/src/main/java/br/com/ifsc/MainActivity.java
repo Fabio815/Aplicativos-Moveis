@@ -100,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         if (idNome > 0) {
             Cursor cursor = database.rawQuery("select * from notas where id=?", new String[]{ String.valueOf(idNome)});
             if (!isNull(cursor)) {
-                int columnIndexId = cursor.getColumnIndex("id");
+                //int columnIndexId = cursor.getColumnIndex("id");
                 int columnIndexName = cursor.getColumnIndex("name");
                 int columnIndexText = cursor.getColumnIndex("texto");
-                nome = new Notas(cursor.getInt(columnIndexId),cursor.getString(columnIndexName),cursor.getString(columnIndexText));
+                nome = new Notas(cursor.getString(columnIndexName),cursor.getString(columnIndexText));
                 System.out.println(nome);
             }
         }
