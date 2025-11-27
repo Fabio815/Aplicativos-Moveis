@@ -27,7 +27,7 @@ public class ArrayAdapterNomes extends ArrayAdapter<Notas> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         super.getView(position, convertView, parent);
         LayoutInflater layoutInflater = LayoutInflater.from(mcontext);
-        convertView =layoutInflater.inflate(mResource,parent,false);
+        convertView = layoutInflater.inflate(mResource,parent,false);
         Notas n = getItem(position);
         TextView tv=convertView.findViewById(android.R.id.text1);
         tv.setText(n.nome);

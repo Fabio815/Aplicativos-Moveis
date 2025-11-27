@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,18 +58,21 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Notas n = (Notas) parent.getItemAtPosition(position);
+            Notas objNome = buscarNome(n.id);
+            System.out.println(n.id);
+        });
+
         listarNotas();
     }
 
     public void listarNotas() {
-        //database.rawQuery("select * from notas where id=?", new String[]{"1"});
-        //notasList.clear();
         List<Notas> notasList = null;
         Cursor cursor = database.rawQuery("select * from notas", null);
         cursor.moveToFirst();
         if (!isNull(cursor)) {
             notasList = new ArrayList<>();
-
             while (!cursor.isAfterLast()) {
                 int columnIndexId = cursor.getColumnIndex("id");
                 int columnIndexName = cursor.getColumnIndex("name");
@@ -84,9 +88,25 @@ public class MainActivity extends AppCompatActivity {
         cursor.close();
     }
 
-    public void deletarNotas(long idNome) {
+    public void deletarNotas(int idNome) {
         if (idNome > 0) {
             int dr = database.delete("notas", " id = ?", new String[]{ String.valueOf(idNome) });
+
         }
+    }
+
+    public Notas buscarNome(int idNome) {
+        Notas nome = null;
+        if (idNome > 0) {
+            Cursor cursor = database.rawQuery("select * from notas where id=?", new String[]{ String.valueOf(idNome)});
+            if (!isNull(cursor)) {
+                int columnIndexId = cursor.getColumnIndex("id");
+                int columnIndexName = cursor.getColumnIndex("name");
+                int columnIndexText = cursor.getColumnIndex("texto");
+                nome = new Notas(cursor.getInt(columnIndexId),cursor.getString(columnIndexName),cursor.getString(columnIndexText));
+                System.out.println(nome);
+            }
+        }
+        return nome;
     }
 }
