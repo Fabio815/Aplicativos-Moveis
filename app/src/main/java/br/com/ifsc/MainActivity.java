@@ -1,8 +1,10 @@
 package br.com.ifsc;
 
+import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 import static java.util.Objects.isNull;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -28,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase database;
     EditText editText;
     Button botao;
+    Button btnEditar;
     ListView listView;
+    Notas objNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editText  = findViewById(R.id.nome);
         botao = findViewById(R.id.button);
+        btnEditar = findViewById(R.id.btnEditar);
         listView = findViewById(R.id.listView);
         database = openOrCreateDatabase("app_database", MODE_PRIVATE, null);
 
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 contentValues.put("texto", texto);
                 database.insert("notas", null, contentValues);
             }
+            editText.setText("");
             listarNotas();
         });
 
@@ -60,10 +66,14 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Notas n = (Notas) parent.getItemAtPosition(position);
-            Notas objNome = buscarNome(n.id);
+            objNome = buscarNome(n.id);
+            editText.setText(objNome.nome);
             System.out.println(n.id);
         });
 
+        btnEditar.setOnClickListener(v -> {
+            alterarNome(objNome.id);
+        });
         listarNotas();
     }
 
@@ -91,22 +101,34 @@ public class MainActivity extends AppCompatActivity {
     public void deletarNotas(int idNome) {
         if (idNome > 0) {
             int dr = database.delete("notas", " id = ?", new String[]{ String.valueOf(idNome) });
-
+            listarNotas();
         }
     }
 
     public Notas buscarNome(int idNome) {
         Notas nome = null;
         if (idNome > 0) {
-            Cursor cursor = database.rawQuery("select * from notas where id=?", new String[]{ String.valueOf(idNome)});
-            if (!isNull(cursor)) {
-                //int columnIndexId = cursor.getColumnIndex("id");
+            Cursor cursor = database.rawQuery("select * from notas where id=?", new String[]{ String.valueOf(idNome) });
+            if (cursor != null && cursor.moveToFirst()) {
+                int columnIndexId = cursor.getColumnIndex("id");
                 int columnIndexName = cursor.getColumnIndex("name");
                 int columnIndexText = cursor.getColumnIndex("texto");
-                nome = new Notas(cursor.getString(columnIndexName),cursor.getString(columnIndexText));
-                System.out.println(nome);
+
+                nome = new Notas(cursor.getInt(columnIndexId), cursor.getString(columnIndexName), cursor.getString(columnIndexText)
+                );
             }
+            cursor.close();
         }
         return nome;
+    }
+
+
+    public void alterarNome(int idNome) {
+        if (idNome > 0) {
+            String nome = editText.getText().toString();
+            database.execSQL("update notas set name=?, texto=? where id=?", new Object[]{nome, nome, idNome});
+            objNome = null;
+            listarNotas();
+        }
     }
 }
