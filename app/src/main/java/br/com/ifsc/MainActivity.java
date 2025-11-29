@@ -5,11 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         contadorTextView = findViewById(R.id.contadorTextView);
         cliqueBotao = findViewById(R.id.cliqueBotao);
 
+        if (savedInstanceState != null) {
+            contador = savedInstanceState.getInt("contador");
+            atualizarContador();
+        }
+
         cliqueBotao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 atualizarContador();
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("contador", contador);
+        super.onSaveInstanceState(outState);
     }
 
     private void atualizarContador() {
