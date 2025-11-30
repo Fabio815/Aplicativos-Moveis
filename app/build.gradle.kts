@@ -37,6 +37,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     implementation("org.osmdroid:osmdroid-android:6.1.16")
     androidTestImplementation(libs.ext.junit)
